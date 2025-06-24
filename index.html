@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Subham Kumar Prusty - Apps & Games Developer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f0f4f8, #d9e4f5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .container {
+      opacity: 0;
+      transform: scale(0.8);
+      animation: containerFade 0.8s ease-out forwards;
+    }
+
+    @keyframes containerFade {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .card {
+      opacity: 0;
+      transform: translateY(100px) rotateX(15deg);
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      padding: 30px;
+      max-width: 450px;
+      width: 100%;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: cardSlideFade 1s ease-out 0.5s forwards;
+    }
+
+    @keyframes cardSlideFade {
+      to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0deg);
+      }
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 20px;
+      border: 4px solid #4f81c7;
+    }
+
+    .profile-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h1 {
+      font-size: 26px;
+      color: #2a4365;
+      margin-bottom: 8px;
+      text-shadow: 0 0 8px rgba(79, 129, 199, 0.3);
+    }
+
+    p {
+      font-size: 17px;
+      color: #444;
+      margin-bottom: 4px;
+    }
+
+    .description {
+      font-size: 15px;
+      color: #333;
+      margin-top: 15px;
+      line-height: 1.6;
+    }
+
+    .buttons {
+      margin-top: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 28px;
+      font-size: 15px;
+      font-weight: 600;
+      width: 80%;
+      text-align: center;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      background: #2a4365;
+      color: #ffffff;
+      border: 2px solid #2a4365;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      animation-name: continuousShimmer;
+      animation-duration: 3s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+
+    .buttons .button:nth-of-type(1)::before { animation-delay: 0s; }
+    .buttons .button:nth-of-type(2)::before { animation-delay: 1s; }
+    .buttons .button:nth-of-type(3)::before { animation-delay: 2s; }
+
+    @keyframes continuousShimmer {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+
+    .button:hover {
+      background: #4f81c7;
+      border-color: #4f81c7;
+      transform: translateY(-2px);
+    }
+
+    .button:active { transform: scale(0.95); }
+
+    /* Rocket emoji animation remains */
+    .rocket-emoji {
+      display: inline-block;
+      position: relative;
+      animation: rocketLaunch 4s ease-in-out 2s forwards;
+    }
+
+    @keyframes rocketLaunch {
+  0%   { transform: translate(0, 0) rotate(0deg) scale(1); }
+  20%  { transform: translate(-60px, -160px) rotate(-45deg) scale(1.8); }
+  50%  { transform: translate(80px, -180px) rotate(45deg) scale(1.8); }
+  80%  { transform: translate(10px, 40px) rotate(20deg) scale(1.2); }
+  100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+}
+
+    
+
+    @media (max-width: 500px) {
+      .card { padding: 22px; }
+      h1 { font-size: 22px; }
+      p { font-size: 15px; }
+      .button { padding: 10px 22px; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="card">
+      <div class="profile-img">
+        <img src="images/subham.jpg" alt="Subham Kumar Prusty" />
+      </div>
+      <h1>Subham Kumar Prusty</h1>
+      <p>🏡 From: Jajpur</p>
+      <p>🎮 Apps & Games Developer</p>
+
+      <div class="description">
+        Passionate about building simple yet addictive games with clean logic and smooth UX.<br />
+        Turning classic ideas into fun digital experiences-one game at a time!
+        <span class="rocket-emoji">🚀</span>🎮✨
+      </div>
+
+      <div class="buttons">
+        <a href="mailto:subhamkumarprusty582@gmail.com?subject=Contact%20from%20your%20Profile%20Card&body=Hi%20Subham," class="button">📧 Email Me</a>
+        <a href="https://www.instagram.com/mr.nobita_1x/" target="_blank" class="button">📸 Instagram</a>
+        <a href="https://subham-ctrl.github.io/TTT-Ultra/" target="_blank" class="button">🎮 My Game</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
