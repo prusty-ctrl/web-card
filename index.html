@@ -38,7 +38,7 @@
     .card {
       opacity: 0;
       transform: translateY(100px) rotateX(15deg);
-      background: #ffffff;
+      background: #b5d5eb;
       border-radius: 20px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
       padding: 30px;
@@ -153,7 +153,6 @@
 
     .button:active { transform: scale(0.95); }
 
-    /* Rocket emoji animation remains */
     .rocket-emoji {
       display: inline-block;
       position: relative;
@@ -161,14 +160,12 @@
     }
 
     @keyframes rocketLaunch {
-  0%   { transform: translate(0, 0) rotate(0deg) scale(1); }
-  20%  { transform: translate(-60px, -160px) rotate(-45deg) scale(1.8); }
-  50%  { transform: translate(80px, -180px) rotate(45deg) scale(1.8); }
-  80%  { transform: translate(10px, 40px) rotate(20deg) scale(1.2); }
-  100% { transform: translate(0, 0) rotate(0deg) scale(1); }
-}
-
-    
+      0%   { transform: translate(0, 0) rotate(0deg) scale(1); }
+      20%  { transform: translate(-60px, -160px) rotate(-45deg) scale(1.8); }
+      50%  { transform: translate(80px, -180px) rotate(45deg) scale(1.8); }
+      80%  { transform: translate(10px, 40px) rotate(20deg) scale(1.2); }
+      100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    }
 
     @media (max-width: 500px) {
       .card { padding: 22px; }
@@ -183,7 +180,7 @@
   <div class="container">
     <div class="card">
       <div class="profile-img">
-        <img src="images/subham.jpg" alt="Subham Kumar Prusty" />
+        <img src="subham.jpg" alt="Subham Kumar Prusty" />
       </div>
       <h1>Subham Kumar Prusty</h1>
       <p>🏡 From: Jajpur</p>
