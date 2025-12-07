@@ -4,124 +4,151 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Subham Kumar Prusty - Apps & Games Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary-blue: #4f81c7;
+      --dark-blue: #2a4365;
+      --light-bg: #f0f4f8;
+      --card-bg: rgba(255, 255, 255, 0.9); /* Frosted effect base */
+      --text-dark: #222;
+      --text-medium: #555;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Montserrat', sans-serif;
     }
 
     body {
       min-height: 100vh;
-      background: linear-gradient(135deg, #f0f4f8, #d9e4f5);
+      background: linear-gradient(135deg, var(--light-bg), #d9e4f5);
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 20px;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
+    /* Container Animation */
     .container {
       opacity: 0;
-      transform: scale(0.8);
-      animation: containerFade 0.8s ease-out forwards;
+      transform: translateY(20px);
+      animation: containerFadeIn 1s ease-out forwards;
+      animation-delay: 0.2s;
     }
 
-    @keyframes containerFade {
+    @keyframes containerFadeIn {
       to {
         opacity: 1;
-        transform: scale(1);
+        transform: translateY(0);
       }
     }
 
+    /* Card Styling - Frosted Glass Neumorphism-lite */
     .card {
-      opacity: 0;
-      transform: translateY(100px) rotateX(15deg);
-      background: #b5d5eb;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-      padding: 30px;
-      max-width: 450px;
+      background: var(--card-bg);
+      backdrop-filter: blur(10px); /* Frosted Glass Effect */
+      border-radius: 25px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1),
+                  0 0 10px rgba(255, 255, 255, 0.6) inset; /* Subtle inner highlight */
+      padding: 40px;
+      max-width: 400px; 
       width: 100%;
       text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: cardSlideFade 1s ease-out 0.5s forwards;
-    }
-
-    @keyframes cardSlideFade {
-      to {
-        opacity: 1;
-        transform: translateY(0) rotateX(0deg);
-      }
+      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      position: relative;
+      /* overflow: hidden;  <-- Uncomment this if you want to strictly hide any part that goes outside the border */
     }
 
     .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 25px 40px rgba(0, 0, 0, 0.15);
     }
 
     .profile-img {
-      width: 150px;
-      height: 150px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
       overflow: hidden;
-      margin: 0 auto 20px;
-      border: 4px solid #4f81c7;
+      margin: 0 auto 25px;
+      border: 5px solid var(--primary-blue);
+      box-shadow: 0 0 0 5px rgba(79, 129, 199, 0.2); /* Outer glow/ring */
+      transition: all 0.4s ease;
+    }
+    
+    .card:hover .profile-img {
+      transform: rotate(3deg);
     }
 
     .profile-img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
     h1 {
-      font-size: 26px;
-      color: #2a4365;
-      margin-bottom: 8px;
-      text-shadow: 0 0 8px rgba(79, 129, 199, 0.3);
+      font-size: 28px;
+      color: var(--dark-blue);
+      margin-bottom: 5px;
+      font-weight: 700;
     }
 
     p {
-      font-size: 17px;
-      color: #444;
+      font-size: 16px;
+      color: var(--text-medium);
       margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .role {
+        color: var(--primary-blue);
+        font-size: 18px;
+        margin-top: 10px;
     }
 
     .description {
-      font-size: 15px;
-      color: #333;
-      margin-top: 15px;
-      line-height: 1.6;
+      font-size: 14px;
+      color: var(--text-dark);
+      margin-top: 20px;
+      line-height: 1.7;
+      padding: 0 10px;
     }
 
     .buttons {
-      margin-top: 22px;
+      margin-top: 30px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 15px;
       align-items: center;
     }
 
     .button {
-      display: inline-block;
-      padding: 12px 28px;
-      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      font-size: 16px;
       font-weight: 600;
-      width: 80%;
+      width: 90%;
+      max-width: 300px;
       text-align: center;
-      border-radius: 30px;
+      border-radius: 35px;
       cursor: pointer;
       transition: all 0.3s ease;
       text-decoration: none;
-      background: #2a4365;
+      background: var(--dark-blue);
       color: #ffffff;
-      border: 2px solid #2a4365;
+      border: none;
+      box-shadow: 0 6px 15px rgba(42, 67, 101, 0.4);
       position: relative;
       overflow: hidden;
     }
 
+    /* Button Shimmer Effect */
     .button::before {
       content: '';
       position: absolute;
@@ -129,51 +156,57 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.5), transparent);
       animation-name: continuousShimmer;
-      animation-duration: 3s;
+      animation-duration: 4s; /* Slower shimmer */
       animation-timing-function: ease-in-out;
       animation-iteration-count: infinite;
     }
 
-    .buttons .button:nth-of-type(1)::before { animation-delay: 0s; }
-    .buttons .button:nth-of-type(2)::before { animation-delay: 1s; }
-    .buttons .button:nth-of-type(3)::before { animation-delay: 2s; }
+    .button:hover {
+      background: var(--primary-blue);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(79, 129, 199, 0.5);
+    }
+
+    .button:active { transform: scale(0.98); }
+    
+    /* Icon Styling */
+    .button i {
+        margin-right: 8px;
+        font-size: 18px;
+    }
+
+    /* 🔥 UPDATED ROCKET ANIMATION - Stays within bounds and goes high 🔥 */
+    .rocket-emoji {
+      display: inline-block;
+      position: relative;
+      /* Animation loops once after 2 seconds delay */
+      animation: rocketLoop 4s cubic-bezier(0.5, 0, 0.5, 1) 2s forwards; 
+    }
+
+    @keyframes rocketLoop {
+      0%   { transform: translate(0, 0) rotate(0deg) scale(1); }
+      20%  { transform: translate(30px, -180px) rotate(20deg) scale(1.5); } /* Upward and Right (Near Photo) */
+      60%  { transform: translate(-30px, -120px) rotate(-10deg) scale(1.3); } /* Leftward and Slightly Down */
+      100% { transform: translate(0, 0) rotate(0deg) scale(1); } /* Back to origin */
+    }
+    /* Rocket ab photo ke frame ke paas se ghoomke smooth wapas aayega. */
 
     @keyframes continuousShimmer {
       0% { left: -100%; }
       100% { left: 100%; }
     }
 
-    .button:hover {
-      background: #4f81c7;
-      border-color: #4f81c7;
-      transform: translateY(-2px);
-    }
-
-    .button:active { transform: scale(0.95); }
-
-    .rocket-emoji {
-      display: inline-block;
-      position: relative;
-      animation: rocketLaunch 4s ease-in-out 2s forwards;
-    }
-
-    @keyframes rocketLaunch {
-      0%   { transform: translate(0, 0) rotate(0deg) scale(1); }
-      20%  { transform: translate(-60px, -160px) rotate(-45deg) scale(1.8); }
-      50%  { transform: translate(80px, -180px) rotate(45deg) scale(1.8); }
-      80%  { transform: translate(10px, 40px) rotate(20deg) scale(1.2); }
-      100% { transform: translate(0, 0) rotate(0deg) scale(1); }
-    }
-
     @media (max-width: 500px) {
-      .card { padding: 22px; }
-      h1 { font-size: 22px; }
-      p { font-size: 15px; }
-      .button { padding: 10px 22px; font-size: 14px; }
+      .card { padding: 30px 20px; border-radius: 20px;}
+      h1 { font-size: 24px; }
+      p { font-size: 14px; }
+      .role { font-size: 16px; }
+      .button { padding: 12px 22px; font-size: 15px; width: 100%; }
     }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
@@ -183,24 +216,28 @@
         <img src="subham.jpg" alt="Subham Kumar Prusty" />
       </div>
       <h1>Subham Kumar Prusty</h1>
-      <p>🏡 From: Odisha,India🇮🇳</p>
-      <p>🎮 Apps & Games Developer</p>
+      <p class="role">Apps & Games Developer</p>
+      <p>🏡 Odisha, India 🇮🇳</p>
+      
 
       <div class="description">
-        Passionate about building simple yet addictive games with clean logic and smooth UX.<br />
-        Turning classic ideas into fun digital experiences-one game at a time!
+        Passionate about building **simple yet addictive games** with clean logic and smooth UX. Turning classic ideas into fun digital experiences—one game at a time!
         <span class="rocket-emoji">🚀</span>🎮✨
       </div>
 
       <div class="buttons">
-        <a href="mailto:subhamkumarprusty582@gmail.com?subject=Contact%20from%20your%20Profile%20Card&body=Hi%20Subham," class="button">📧 Email Me</a>
-        <a href="https://www.instagram.com/mr.nobita_1x/" target="_blank" class="button">📸 Instagram</a>
-        <a href="https://prusty-ctrl.github.io/My-games/" target="_blank" class="button">🎮 My Games</a>
+        <a href="mailto:subhamkumarprusty582@gmail.com?subject=Contact%20from%20your%20Profile%20Card&body=Hi%20Subham," class="button">
+            <i class="fas fa-envelope"></i> Email Me
+        </a>
+        <a href="https://www.instagram.com/mr.nobita_1x/" target="_blank" class="button">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="https://prusty-ctrl.github.io/My-games/" target="_blank" class="button">
+            <i class="fas fa-gamepad"></i> My Games
+        </a>
       </div>
     </div>
   </div>
 
 </body>
 </html>
-
-
