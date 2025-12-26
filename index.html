@@ -1,233 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Subham Kumar Prusty - Glass Card</title>
+<title>Subham Kumar Prusty | OX MODZ</title>
 
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 
 <style>
-:root {
-    --text: #ffffff;
-    --muted: #cfcfcf;
-    --glass-bg: rgba(41, 49, 61, 0.4);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --button-bg: rgba(255, 255, 255, 0.08);
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+  color:#fff;
+  overflow-x:hidden;
+  background:linear-gradient(120deg,#020617,#0b1120,#020617);
+  background-size:400% 400%;
+  animation:gradientMove 15s ease infinite;
 }
 
-/* ===== BODY ===== */
-body {
-    margin: 0;
-    min-height: 100vh;
-    display: grid;
-    place-items: center;
-    font-family: 'Inter', sans-serif;
-    background: #0d1117;
-    color: var(--text);
-    padding: 16px;
+@keyframes gradientMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
 }
 
-/* ===== CARD ===== */
-.card {
-    width: 380px;
-    max-width: 95%;
-    background: var(--glass-bg);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    border-radius: 36px; 
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+.particle{
+  position:absolute;
+  border-radius:50%;
+  background:rgba(255,255,255,0.3);
+  animation:floatParticle linear infinite;
 }
 
-/* ===== CONTENT ===== */
-.card-content {
-    padding: 40px 30px;
-    text-align: center;
+@keyframes floatParticle{
+  0%{transform:translateY(0) translateX(0);opacity:0.3;}
+  50%{transform:translateY(-60px) translateX(30px);opacity:0.7;}
+  100%{transform:translateY(0) translateX(0);opacity:0.3;}
 }
 
-/* ===== PROFILE ===== */
-.profile-pic-container {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 20px;
-    border-radius: 50%;
-    padding: 3px;
-    background: linear-gradient(135deg, #8066CC, #E666B3, #8066CC);
-    background-size: 250% 250%;
-    animation: shine-border 4s ease-in-out infinite alternate;
-    transition: transform 0.3s ease;
+.container{
+  position:relative;
+  width:100%;
+  max-width:380px;
+  background:rgba(255,255,255,0.14);
+  backdrop-filter:blur(20px);
+  border-radius:24px;
+  padding:20px 18px 22px;
+  box-shadow:0 35px 80px rgba(0,0,0,0.55);
+  text-align:center;
+  animation:floatCard 5s ease-in-out infinite;
+  z-index:10;
 }
 
-@keyframes shine-border {
-    from { background-position: 0% 0%; }
-    to { background-position: 100% 100%; }
+@keyframes floatCard{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+  100%{transform:translateY(0);}
 }
 
-.profile-pic-container:hover {
-    transform: scale(1.05);
+.profile-img{
+  width:110px;
+  height:110px;
+  margin:0 auto 15px;
+  border-radius:50%;
+  overflow:hidden;
+  border:2px solid rgba(255,255,255,0.35);
+  box-shadow:0 12px 35px rgba(0,0,0,0.5);
+}
+.profile-img img{width:100%;height:100%;object-fit:cover;}
+
+h1{
+  font-family:'Rajdhani', sans-serif; 
+  font-weight:700;
+  font-size:1.8rem;
+  margin-bottom:10px;
+  letter-spacing:1.5px;
+  opacity:0;
+  animation:fadeInText 1.2s forwards;
+  color:#ffffff;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.6);
 }
 
-.profile-pic {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    background-color: #0d1117;
+.description{
+  font-size:0.88rem;
+  line-height:1.6;
+  color:rgba(255,255,255,0.95);
+  margin-bottom:20px;
+  opacity:0;
+  animation:fadeInText 1.5s forwards;
 }
 
-/* ===== TEXT ===== */
-.name {
-    font-size: 24px;
-    font-weight: 600;
-    margin: 0 0 5px;
+@keyframes fadeInText{
+  0%{opacity:0;transform:translateY(8px);}
+  100%{opacity:1;transform:translateY(0);}
 }
 
-.subtitle {
-    font-size: 15px;
-    font-weight: 400;
-    color: var(--muted);
-    margin-bottom: 18px;
+.buttons{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
 }
 
-.description {
-    font-size: 14px;
-    line-height: 1.7;
-    color: var(--muted);
-    margin-bottom: 32px;
+/* Compact Buttons */
+.btn{
+  position:relative;
+  height:42px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  font-size:0.9rem;
+  font-weight:600;
+  color:#fff;
+  text-decoration:none;
+  overflow:hidden;
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.25);
+  box-shadow:0 10px 25px rgba(0,0,0,0.45);
+  transition:transform 0.25s ease,box-shadow 0.25s ease;
 }
 
-/* ===== BUTTONS (2x2 Grid) ===== */
-.social-buttons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+.btn:after{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;left:0;
+  background:rgba(255,255,255,0.1);
+  border-radius:14px;
+  opacity:0;
+  transform:scale(0);
+  transition:transform 0.3s,opacity 0.3s;
 }
 
-.social-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 10px; 
-    border-radius: 20px;
-    text-decoration: none;
-    color: var(--text);
-    font-size: 14.5px; 
-    font-weight: 500;
-    background: var(--button-bg);
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
-    position: relative;
-    overflow: hidden;
+.btn:active:after{
+  transform:scale(1);
+  opacity:1;
+  transition:0s;
 }
 
-.social-btn i {
-    margin-right: 12px;
-    font-size: 16px;
+.btn:hover{
+  transform:translateY(-1.5px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.6);
 }
 
-/* ===== Shimmer Effect ===== */
-.social-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -75%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(
-        to right, 
-        rgba(255, 255, 255, 0) 0%, 
-        rgba(255, 255, 255, 0.2) 50%, 
-        rgba(255, 255, 255, 0) 100%
-    );
-    transform: skewX(-25deg);
-    pointer-events: none;
-    animation: shimmer 4s linear infinite;
-}
+/* Brand Colors */
+.instagram{background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af);}
+.telegram{background:linear-gradient(135deg,#0088cc,#00b3ff);}
+.email{background:linear-gradient(135deg,#ea4335,#ff6b6b);}
+.oxmodz{background:linear-gradient(135deg,#7c3aed,#2563eb);}
+.about{background:linear-gradient(135deg,#10b981,#34d399);}
 
-@keyframes shimmer {
-    from { left: -75%; }
-    to { left: 125%; }
+@media(max-width:360px){
+  h1{font-size:1.65rem;}
+  .description{font-size:0.85rem;}
 }
-
-/* Staggered animation delays for natural feel */
-.social-buttons > .social-btn:nth-child(1)::before { animation-delay: 0.5s; }
-.social-buttons > .social-btn:nth-child(2)::before { animation-delay: 1.8s; }
-.social-buttons > .social-btn:nth-child(3)::before { animation-delay: 1.2s; }
-.social-buttons > .social-btn:nth-child(4)::before { animation-delay: 2.5s; }
-
-
-.social-btn:hover {
-    transform: scale(1.05);
-}
-
-.social-btn:active {
-    transform: scale(0.98);
-}
-
-/* ===== App-Colored Button Hovers ===== */
-.instagram:hover {
-    background-color: rgba(228, 64, 95, 0.1);
-    color: #E4405F;
-    box-shadow: 0 0 20px rgba(228, 64, 95, 0.4);
-}
-.email:hover {
-    background-color: rgba(229, 57, 53, 0.1);
-    color: #e53935;
-    box-shadow: 0 0 20px rgba(229, 57, 53, 0.4);
-}
-.telegram:hover {
-    background-color: rgba(0, 136, 204, 0.1);
-    color: #0088cc;
-    box-shadow: 0 0 20px rgba(0, 136, 204, 0.4);
-}
-.ox-modz:hover {
-    background-color: rgba(124, 131, 255, 0.1);
-    color: #7c83ff;
-    box-shadow: 0 0 20px rgba(124, 131, 255, 0.4);
-}
-
 </style>
 </head>
 <body>
 
-<div class="card">
-    <div class="card-content">
+<!-- Floating particles -->
+<div class="particle" style="top:10%;left:15%;width:5px;height:5px;"></div>
+<div class="particle" style="top:70%;left:80%;width:8px;height:8px;"></div>
+<div class="particle" style="top:50%;left:40%;width:6px;height:6px;"></div>
+<div class="particle" style="top:20%;left:70%;width:4px;height:4px;"></div>
+<div class="particle" style="top:80%;left:20%;width:5px;height:5px;"></div>
 
-        <div class="profile-pic-container">
-            <img src="subham.jpg" class="profile-pic"
-                 onerror="this.style.display='none'">
-        </div>
+<div class="container">
 
-        <h1 class="name">Subham Kumar Prusty</h1>
-        <h2 class="subtitle">📍Odisha, India</h2>
+  <div class="profile-img">
+    <img src="subham.jpg" alt="Subham Kumar Prusty">
+  </div>
 
-        <p class="description">
-            𝗢𝗫 𝗠𝗢𝗗𝗭 𝗶𝘀 𝘁𝗵𝗲 𝘂𝗹𝘁𝗶𝗺𝗮𝘁𝗲 𝘄𝗲𝗯𝘀𝗶𝘁𝗲 𝘄𝗵𝗲𝗿𝗲 𝘆𝗼𝘂 𝗰𝗮𝗻 𝗴𝗲𝘁 𝗽𝗿𝗲𝗺𝗶𝘂𝗺 𝘃𝗲𝗿𝘀𝗶𝗼𝗻𝘀 𝗮𝗻𝗱 𝗺𝗼𝗱 𝗔𝗣𝗞𝘀 𝗼𝗳 𝗮𝗽𝗽𝘀 𝗮𝗻𝗱 𝗴𝗮𝗺𝗲𝘀 𝗰𝗼𝗺𝗽𝗹𝗲𝘁𝗲𝗹𝘆 𝗳𝗼𝗿 𝗳𝗿𝗲𝗲. 𝗘𝗻𝗷𝗼𝘆 𝗮𝗹𝗹 𝗳𝗲𝗮𝘁𝘂𝗿𝗲𝘀 𝘂𝗻𝗹𝗼𝗰𝗸𝗲𝗱, 𝘀𝗺𝗼𝗼𝘁𝗵 𝗽𝗲𝗿𝗳𝗼𝗿𝗺𝗮𝗻𝗰𝗲, 𝗮𝗻𝗱 𝘀𝘂𝗽𝗲𝗿 𝗲𝗮𝘀𝘆 𝗱𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝘀 𝘄𝗶𝘁𝗵𝗼𝘂𝘁 𝗮𝗻𝘆 𝗵𝗶𝗱𝗱𝗲𝗻 𝗰𝗵𝗮𝗿𝗴𝗲𝘀. 𝗡𝗼 𝘀𝘂𝗯𝘀𝗰𝗿𝗶𝗽𝘁𝗶𝗼𝗻𝘀, 𝗻𝗼 𝗽𝗮𝘆𝗺𝗲𝗻𝘁𝘀—𝗷𝘂𝘀𝘁 𝗽𝘂𝗿𝗲 𝗳𝘂𝗻. 𝗖𝗹𝗶𝗰𝗸 𝘁𝗵𝗲 𝗢𝗫 𝗠𝗢𝗗𝗭 𝗯𝘂𝘁𝘁𝗼𝗻 𝗯𝗲𝗹𝗼𝘄 𝗮𝗻𝗱 𝘀𝘁𝗮𝗿𝘁 𝗲𝘅𝗽𝗹𝗼𝗿𝗶𝗻𝗴 𝘁𝗵𝗲 𝗹𝗮𝘁𝗲𝘀𝘁 𝗺𝗼𝗱𝘀 𝗮𝗻𝗱 𝗮𝗽𝗽𝘀 𝗻𝗼𝘄!
-        </p>
+  <h1>Subham Kumar Prusty</h1>
 
-        <div class="social-buttons">
-            <a href="https://www.instagram.com/mr.xubham_1x?igsh=MWtuN3B6cmNnMW9pZQ==" target="_blank" class="social-btn instagram">
-                <i class="fab fa-instagram"></i>Instagram
-            </a>
-            <a href="mailto:subhamkumarprusty582@gmail.com" class="social-btn email">
-                <i class="fas fa-envelope"></i>Email
-            </a>
-            <a href="https://t.me/premiumappsale" target="_blank" class="social-btn telegram">
-                <i class="fab fa-telegram-plane"></i>Telegram
-            </a>
-            <a href="https://prusty-ctrl.github.io/OX-MODZ/" target="_blank" class="social-btn ox-modz">
-                <i class="fas fa-gamepad"></i>OX MODZ
-            </a>
-        </div>
+  <p class="description">
+    OX MODZ, wned by SUBHAM KUMAR PRUSTY, is a trusted platform providing safe, tested, and verified modded Android apps for educational and informational purposes. We focus on transparency, user safety, and responsible sharing, helping users explore enhanced app features with proper guidance and awareness. 🚀📱
+  </p>
 
-    </div>
+  <div class="buttons">
+    <!-- Demo links added, change URL inside href for real link -->
+    <a href="https://www.instagram.com/mr.xubham_1x?igsh=MWtuN3B6cmNnMW9pZQ==" target="_blank" class="btn instagram">
+      <i class="fa-brands fa-instagram"></i> Instagram
+      <!-- CHANGE LINK HERE -->
+    </a>
+    <a href="https://t.me/SubhamModz" target="_blank" class="btn telegram">
+      <i class="fa-brands fa-telegram"></i> Telegram
+      <!-- CHANGE LINK HERE -->
+    </a>
+    <a href="mailto:subhamkumarprusty582@gmail.com?subject=Hello&body=Hi," target="_blank" class="btn email">
+      <i class="fa-solid fa-envelope"></i> Email
+      <!-- CHANGE LINK HERE -->
+    </a>
+    <a href="https://oxmodz.page.gd/" target="_blank" class="btn oxmodz">
+      <i class="fa-solid fa-rocket"></i> OX MODZ
+      <!-- CHANGE LINK HERE -->
+    </a>
+    <a href="https://oxmodz.page.gd/about" target="_blank" class="btn about">
+      <i class="fa-solid fa-user"></i> About Me
+      <!-- CHANGE LINK HERE -->
+    </a>
+  </div>
+
 </div>
-
 </body>
 </html>
